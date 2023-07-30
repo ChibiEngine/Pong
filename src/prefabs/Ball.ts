@@ -10,9 +10,9 @@ export default class Ball extends PixiObject<Graphics> implements FixedUpdatable
 
   constructor() {
     super(new Graphics());
-    this.pixi.beginFill(0xFFFFFF);
-    this.pixi.drawCircle(0, 0, 10);
-    this.pixi.endFill();
+    this.beginFill(0xFFFFFF);
+    this.drawCircle(0, 0, 10);
+    this.endFill();
 
     this.position.setTransition(1000/50);
   }

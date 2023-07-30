@@ -27,23 +27,23 @@ export default class PongScene extends Scene implements FixedUpdatable {
 
     this.ball = this.add(new Ball())
         .setPosition({x: this.game.screen.center.x, y: this.game.screen.center.y});
-    this.ball.pixi.pivot.set(5, 5);
+    this.ball.pivot.set(5, 5);
 
     this.score1 = this.add(new PixiObject(new Text("0", {
       fill: 0xFFFFFF,
     }))).setPosition({x: 10, y: 5});
 
-    this.score1.pixi.anchor.set(0, 0);
+    this.score1.anchor.set(0, 0);
 
     this.score2 = this.add(new PixiObject(new Text("0", {
       fill: 0xFFFFFF,
     }))).setPosition({x: this.game.screen.width - 10, y: 5});
 
-    this.score2.pixi.anchor.set(1, 0);
+    this.score2.anchor.set(1, 0);
 
     const line = this.add(new DashedLine(4, this.game.screen.height))
         .setPosition({x: this.game.screen.center.x, y: 0});
-    line.pixi.pivot.set(4, 0);
+    line.pivot.set(4, 0);
 
     setTimeout(() => {
       this.ball.unfreeze();
@@ -60,7 +60,7 @@ export default class PongScene extends Scene implements FixedUpdatable {
     }
 
     if(ball.position.x < 0) {
-      this.score2.text = (parseInt(this.score2.pixi.text) + 1).toString();
+      this.score2.text = (parseInt(this.score2.text) + 1).toString();
       ball.direction = {x: 0.5, y: 0.5};
       ball.setPosition({x: this.game.screen.center.x-2, y: this.game.screen.center.y - 5});
       ball.freeze();
