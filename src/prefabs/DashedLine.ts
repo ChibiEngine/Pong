@@ -1,5 +1,6 @@
-import PixiObject from "chibiengine/src/gameobjects/PixiObject.ts";
-import { Graphics } from "pixi.js";
+import {Graphics} from "@pixi/graphics";
+
+import PixiObject from "chibiengine/gameobjects/PixiObject";
 
 export default class DashedLine extends PixiObject<Graphics> {
   constructor(width: number, height: number) {

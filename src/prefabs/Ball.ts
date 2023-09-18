@@ -1,6 +1,7 @@
-import { Graphics } from "pixi.js";
-import PixiObject from "chibiengine/src/gameobjects/PixiObject.ts";
-import {FixedUpdatable} from "chibiengine/src/gameobjects/Updatable.ts";
+import {Graphics} from "@pixi/graphics";
+
+import PixiObject from "chibiengine/gameobjects/PixiObject";
+import {FixedUpdatable} from "chibiengine/gameobjects/Updatable";
 
 export default class Ball extends PixiObject<Graphics> implements FixedUpdatable {
   private frozen = true;
@@ -55,5 +56,11 @@ export default class Ball extends PixiObject<Graphics> implements FixedUpdatable
 
     this.position.x += this.speed * this.direction.x;
     this.position.y += this.speed * this.direction.y;
+  }
+
+  public reset() {
+    this.direction = {x: 0.5, y: 0.5};
+    this.setPosition({x: this.scene.game.screen.center.x-2, y: this.scene.game.screen.center.y - 5});
+    this.freeze();
   }
 }

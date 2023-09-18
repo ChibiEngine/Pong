@@ -1,14 +1,18 @@
 import Behavior from "chibiengine/component/Behavior";
 import GameObject from "chibiengine/gameobjects/GameObject";
 import {Class} from "chibiengine/utils/type_utils";
-import Keyboard from "chibiengine/keyboard/Keyboard";
+import Ball from "../prefabs/Ball";
 
-export default class RacketController extends Behavior<"controller", GameObject> {
+export default class ComputerController extends Behavior<"controller", GameObject> {
   readonly componentName = "controller";
   readonly targetType: Class<GameObject> = GameObject;
   public readonly updateRate = 20;
 
-  // @ts-ignore
+  public constructor(private readonly ball: Ball) {
+    super();
+  }
+
+// @ts-ignore
   private target: GameObject;
 
   public apply(target: GameObject) {
@@ -17,11 +21,6 @@ export default class RacketController extends Behavior<"controller", GameObject>
   }
 
   public update(): void {
-    if (Keyboard.wasKeyDown("ArrowUp", 50) && this.target.y > 1) {
-      this.target.y -= 25;
-    }
-    if (Keyboard.wasKeyDown("ArrowDown", 50) && this.target.y < this.target.scene.game.screen.height - this.target.size.height - 1) {
-      this.target.y += 25;
-    }
+    this.target.y = this.ball.y - this.target.size.height / 2;
   }
 }

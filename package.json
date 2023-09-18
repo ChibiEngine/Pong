@@ -4,15 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "typescript": "^5.0.2",
+    "typescript": "^5.1.6",
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "chibiengine": "^0.1.1-dev"
+    "@pixi/text": "^7.2.4",
+    "chibiengine": "^0.2.0-dev"
   }
 }

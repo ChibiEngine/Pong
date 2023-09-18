@@ -1,5 +1,5 @@
-import Game from "chibiengine/src/game/Game";
-import PongScene from "./PongScene.ts";
+import Game from "chibiengine/game/Game";
+import PongScene from "./PongScene";
 
 const game = new Game({
   width: 500,
